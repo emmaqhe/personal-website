@@ -1,97 +1,29 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Emma He</title>
-  <meta name="description" content="Personal website of Emma He." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Emma He 何其安</title>
+  <meta name="description" content="Emma He's research, notes, and recommendations.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=EB+Garamond:ital,wght@0,400..600;1,400..600&family=Noto+Serif+SC:wght@400;600&family=Pinyon+Script&display=swap">
+  <link rel="stylesheet" href="css/site.css">
 </head>
-<body>
-  <!-- Interactive particle field behind everything -->
-  <canvas id="field" aria-hidden="true"></canvas>
-
-  <!-- Custom cursor (hidden on touch devices) -->
-  <div class="cursor-dot" aria-hidden="true"></div>
-  <div class="cursor-ring" aria-hidden="true"></div>
-
-  <header class="nav">
-    <a href="#top" class="logo magnetic">EH</a>
-    <nav>
-      <a href="#about" class="magnetic">About</a>
-      <a href="#work" class="magnetic">Work</a>
-      <a href="#contact" class="magnetic">Contact</a>
-    </nav>
-  </header>
-
-  <main id="top">
-    <section class="hero">
-      <p class="eyebrow mono">hello, world — i'm</p>
-      <h1 class="hero-title" data-split>Emma He</h1>
-      <p class="hero-sub">
-        I build things for the web.
-        <span class="scramble mono" data-words="Designer,Developer,Creative coder,Curious human">Developer</span>
-      </p>
-      <a href="#work" class="btn magnetic"><span>See my work</span></a>
-      <div class="scroll-hint mono">scroll ↓</div>
-    </section>
-
-    <section id="about" class="section reveal">
-      <h2 class="section-title"><span class="mono">01.</span> About</h2>
-      <div class="about-grid">
-        <p>
-          Hi! I'm Emma. This is my corner of the internet. Move your mouse
-          around: the particles follow you, the cards tilt toward you, and the
-          buttons pull you in. Edit this paragraph to tell people about yourself.
-        </p>
-        <ul class="skills mono">
-          <li>JavaScript</li>
-          <li>HTML &amp; CSS</li>
-          <li>Design</li>
-          <li>Animation</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="work" class="section reveal">
-      <h2 class="section-title"><span class="mono">02.</span> Work</h2>
-      <div class="cards">
-        <article class="card tilt">
-          <div class="card-glare"></div>
-          <p class="mono card-tag">Project</p>
-          <h3>Project One</h3>
-          <p>A short description of something you made and why it's cool.</p>
-        </article>
-        <article class="card tilt">
-          <div class="card-glare"></div>
-          <p class="mono card-tag">Project</p>
-          <h3>Project Two</h3>
-          <p>Another project. Swap in a link, an image, whatever you like.</p>
-        </article>
-        <article class="card tilt">
-          <div class="card-glare"></div>
-          <p class="mono card-tag">Experiment</p>
-          <h3>Project Three</h3>
-          <p>Small experiments count too. Show off what you've been playing with.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="contact" class="section reveal contact">
-      <h2 class="section-title"><span class="mono">03.</span> Say hi</h2>
-      <p>My inbox is always open.</p>
-      <a href="mailto:you@example.com" class="btn magnetic"><span>Get in touch</span></a>
-      <div class="socials">
-        <a href="https://github.com/emmaqhe" class="magnetic mono" target="_blank" rel="noopener">GitHub</a>
-      </div>
-    </section>
+<body class="page-cover" data-page="home">
+  <div class="veil" aria-hidden="true"></div>
+  <main class="cover">
+    <div class="cover-stage" id="stage"></div>
+    <nav class="contents" aria-label="Sections"></nav>
   </main>
-
-  <footer class="mono">© <span id="year"></span> Emma He</footer>
-
-  <script src="script.js"></script>
+  <div class="candle" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <script src="js/vendor/gsap.min.js"></script>
+  <script src="js/vendor/SplitText.min.js"></script>
+  <script src="js/vendor/DrawSVGPlugin.min.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/stage.js"></script>
+  <script src="js/site.js"></script>
 </body>
 </html>
