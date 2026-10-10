@@ -73,7 +73,7 @@
   function leaveTo(url, toCover) {
     const veil = q(".veil");
     if (!veil || reduceMotion) return (location.href = url);
-    veil.style.background = toCover ? "var(--velvet)" : "var(--pearl)";
+    veil.style.background = "var(--velvet)";
     veil.classList.add("is-leaving", "is-hidden");
     void veil.offsetWidth;
     veil.classList.remove("is-hidden");
@@ -122,8 +122,9 @@
 
   /* ---------- stage motion ---------- */
 
-  const FLOURISH =
-    "M2 12 C 30 2, 52 20, 80 10 S 120 2, 140 9 C 150 12, 156 6, 152 3 C 148 0, 143 6, 150 9 C 162 14, 186 8, 198 4";
+  // a loose, hand-drawn oval that overshoots where it started
+  const OVAL =
+    "M112 5 C 165 5, 197 20, 196 40 C 195 62, 152 76, 100 76 C 46 76, 4 62, 4 40 C 4 18, 48 4, 104 4 C 128 4, 150 7, 166 12";
   const SPARK = "M6 0 L7.2 4.8 L12 6 L7.2 7.2 L6 12 L4.8 7.2 L0 6 L4.8 4.8 Z";
 
   function addExtras(el) {
@@ -190,9 +191,12 @@
       tag.className = "tag";
       tag.setAttribute("aria-hidden", "true");
       tag.innerHTML = `
-        <svg class="tag-flourish" viewBox="0 0 200 16" preserveAspectRatio="none"><path d="${FLOURISH}"/></svg>
-        <span class="tag-name"></span><span class="tag-hint"></span>
-        <svg class="tag-spark" viewBox="0 0 12 12"><path d="${SPARK}"/></svg>`;
+        <span class="tag-oval">
+          <svg class="tag-ring" viewBox="0 0 200 80" preserveAspectRatio="none"><path d="${OVAL}"/></svg>
+          <span class="tag-name"></span>
+          <svg class="tag-spark" viewBox="0 0 12 12"><path d="${SPARK}"/></svg>
+        </span>
+        <span class="tag-hint"></span>`;
       stage.appendChild(tag);
     }
     let tagTl = null;
@@ -217,7 +221,7 @@
       tagTl = gsap
         .timeline()
         .set(tag, { autoAlpha: 1 })
-        .fromTo(tag.querySelector(".tag-flourish path"), { drawSVG: "0%" }, { drawSVG: "100%", duration: 0.7, ease: "power2.inOut" }, 0)
+        .fromTo(tag.querySelector(".tag-ring path"), { drawSVG: "0%" }, { drawSVG: "100%", duration: 0.75, ease: "power2.inOut" }, 0.05)
         .fromTo(tag.querySelector(".tag-name"), { clipPath: "inset(0 100% 0 0)", y: 6 }, { clipPath: "inset(0 0% 0 0)", y: 0, duration: 0.8, ease: "power2.out" }, 0.1)
         .fromTo(tag.querySelector(".tag-hint"), { autoAlpha: 0, y: 4 }, { autoAlpha: 1, y: 0, duration: 0.5 }, 0.45)
         .fromTo(tag.querySelector(".tag-spark"), { scale: 0, rotation: -90, transformOrigin: "50% 50%" }, { scale: 1, rotation: 0, duration: 0.5, ease: "back.out(3)" }, 0.6)
@@ -260,7 +264,7 @@
         const split = new SplitText(name, { type: "chars" });
         tl.from(split.chars, { yPercent: 35, opacity: 0, filter: "blur(10px)", duration: 1.1, stagger: 0.045 }, 0.1);
       }
-      tl.from(stage.querySelectorAll(".bd-zh, .bd-issue, .bd-tagline"), { opacity: 0, y: 8, duration: 1, stagger: 0.15 }, 0.5);
+      tl.from(stage.querySelectorAll(".bd-zh, .bd-tagline"), { opacity: 0, y: 8, duration: 1, stagger: 0.15 }, 0.5);
       tl.from(
         els.map((e) => e.querySelector("img")),
         {
@@ -414,13 +418,13 @@
 
   // recs
   const SPINE_COLORS = [
-    ["#3d2b22", "#f3eae2"],
     ["#9a5760", "#fbf6ef"],
     ["#5c5a34", "#f3eae2"],
     ["#e7dbcf", "#3d2b22"],
     ["#b08a52", "#2b1e18"],
     ["#f3eae2", "#3d2b22"],
     ["#6e5244", "#f3eae2"],
+    ["#c6c8a3", "#2b1e18"],
   ];
 
   function hash(s) {
@@ -435,10 +439,10 @@
   }
 
   const REC_TABS = [
-    { id: "books", label: "Books", zh: "书" },
-    { id: "music", label: "Music", zh: "乐" },
-    { id: "reads", label: "Online reads", zh: "读" },
-    { id: "restaurants", label: "Restaurants", zh: "食" },
+    { id: "books", label: "Books" },
+    { id: "music", label: "Music" },
+    { id: "reads", label: "Online reads" },
+    { id: "restaurants", label: "Restaurants" },
   ];
 
   function recPanel(id, items) {
@@ -496,7 +500,7 @@
       <div class="folder tab-${initial.id}">
         <div class="folder-tabs" role="tablist" aria-label="Recommendations">${REC_TABS.map(
           (t) => `<button type="button" role="tab" id="tab-${t.id}" class="tab-${t.id}" aria-controls="panel" aria-selected="${t === initial}">
-            ${t.label}<span class="zh" lang="zh-Hans">${t.zh}</span></button>`
+            ${t.label}</button>`
         ).join("")}</div>
         <div class="folder-panel" id="panel" role="tabpanel"></div>
       </div>`;
@@ -557,25 +561,26 @@
     const assets = new Map(data.assets.map((a) => [a.id, a]));
     const list = data.content.projects;
     q("#content").innerHTML = list.length
-      ? `<div class="specimens">${list
+      ? `<ol class="studies">${list
           .map((p) => {
             const a = assets.get(p.image);
             const u = safeUrl(p.url);
-            const meta = [p.field, p.year].filter(Boolean).map(esc).join(", ");
-            return `<article class="specimen">
-              <figure class="polaroid" style="margin:0">
+            const chips = [p.year, p.status].filter(Boolean);
+            return `<li class="study">
+              <div>
+                ${p.field ? `<p class="kicker label">${esc(p.field)}</p>` : ""}
+                <div class="study-head"><h2>${esc(p.title)}</h2></div>
+                <p class="abstract">${esc(p.abstract)}</p>
+                ${chips.length ? `<ul class="chips">${chips.map((c) => `<li class="label">${esc(c)}</li>`).join("")}</ul>` : ""}
+                ${u ? `<a class="pill" href="${esc(u)}" target="_blank" rel="noopener">Read more</a>` : ""}
+              </div>
+              <figure class="polaroid">
                 <div class="ph">${a ? `<img src="${esc(a.src)}" alt="">` : ""}</div>
                 <figcaption class="cap">${esc((p.status || "").toLowerCase())}</figcaption>
               </figure>
-              <div>
-                ${meta ? `<p class="meta">${meta}</p>` : ""}
-                <h2>${esc(p.title)}</h2>
-                <p class="abstract">${esc(p.abstract)}</p>
-                ${u ? `<a class="pill" href="${esc(u)}" target="_blank" rel="noopener">Read more</a>` : ""}
-              </div>
-            </article>`;
+            </li>`;
           })
-          .join("")}</div>`
+          .join("")}</ol>`
       : `<div class="empty"><p class="script">Soon</p><p>Projects will be listed here.</p></div>`;
   }
 
@@ -606,11 +611,11 @@
         <p class="salute">Dear reader,</p>
         <p class="note">${esc(c.note)}</p>
         <div class="letter-actions">
-          ${email ? `<a class="seal-btn" href="mailto:${esc(email)}"><span class="seal" aria-hidden="true">E</span>Send an email</a>` : ""}
-          ${li ? `<a class="card-btn" href="${esc(li)}" target="_blank" rel="noopener"><span class="mono" aria-hidden="true">in</span>LinkedIn</a>` : ""}
-          ${email ? `<button type="button" class="text-btn" data-copy>Copy email address</button>` : ""}
+          ${email ? `<a class="icon-link" href="mailto:${esc(email)}"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="1.5"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg></span><span class="label">Email</span></a>` : ""}
+          ${li ? `<a class="icon-link" href="${esc(li)}" target="_blank" rel="noopener"><span class="ic" aria-hidden="true">in</span><span class="label">LinkedIn</span></a>` : ""}
+          ${email ? `<button type="button" class="sticker" data-copy aria-label="Copy email address">copy email</button>` : ""}
         </div>
-        <p class="signature">Emma<span class="zh" lang="zh-Hans">何其安</span></p>
+        <p class="signature">Emma He<span class="zh" lang="zh-Hans">何其安</span></p>
       </div>`;
     const copy = q("[data-copy]");
     if (copy) {
@@ -661,7 +666,7 @@
     if (pageId === "contact") renderContact(data);
 
     const foot = q(".site-foot");
-    if (foot) foot.innerHTML = `Emma He <span class="zh" lang="zh-Hans">何其安</span>, ${new Date().getFullYear()}`;
+    if (foot) foot.innerHTML = `© ${new Date().getFullYear()} Emma He <span class="zh" lang="zh-Hans">何其安</span>`;
   }
 
   function sessionStorageGet(k) {

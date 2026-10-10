@@ -916,8 +916,8 @@
   const SINGLE_FORMS = {
     cover: {
       path: ["cover"],
-      intro: "The small lines on the cover page.",
-      fields: [["issue", "Line above your name"], ["tagline", "Line at the bottom left", "textarea"]],
+      intro: "The small line on the cover page.",
+      fields: [["tagline", "Line at the bottom left", "textarea"]],
     },
     contact: {
       path: ["contact"],

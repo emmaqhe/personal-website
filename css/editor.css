@@ -501,7 +501,7 @@ body.studio::after {
 
 .ed-stage.stage-title,
 .ed-stage.stage-plain {
-  background: var(--pearl);
+  background: radial-gradient(ellipse at 50% 0%, var(--velvet-2), var(--velvet) 80%);
 }
 
 .ed-stage .el {
@@ -514,11 +514,6 @@ body.studio::after {
 
 .ed-stage .el img {
   filter: drop-shadow(0 10px 12px rgba(10, 5, 3, 0.35));
-}
-
-.stage-title .el img,
-.stage-plain .el img {
-  filter: drop-shadow(0 10px 12px rgba(61, 43, 34, 0.25));
 }
 
 .sel-box {

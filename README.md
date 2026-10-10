@@ -1,6 +1,6 @@
 # Emma He 何其安
 
-My personal site, laid out like a magazine issue. The cover is a still life on a dark velvet table: each object opens a section, and its name is written out when you hover over it.
+My personal site, laid out like a magazine issue. The cover is a still life on a dark table: each object opens a section, and its name is written out when you hover over it.
 
 | Object | Opens |
 | --- | --- |
@@ -52,6 +52,6 @@ Plain HTML, CSS and JavaScript, with no build step.
 - `assets/objects/`: cut-out images for the library
 - Animation uses [GSAP](https://gsap.com) with SplitText and DrawSVG, kept in `js/vendor/`
 
-Fonts: Bodoni Moda (titles), EB Garamond (text), Pinyon Script (handwriting), Noto Serif SC (Chinese).
+Fonts: Instrument Serif (headings and text), Inter Tight (name and small labels), Pinyon Script (handwriting), Noto Serif SC (Chinese).
 
 The site deploys to GitHub Pages on every push to `main` (see `.github/workflows/pages.yml`).

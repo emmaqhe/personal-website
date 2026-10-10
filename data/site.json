@@ -145,8 +145,8 @@
     {
      "id": "el-1",
      "assetId": "butterflies",
-     "x": 1415,
-     "y": 470,
+     "x": 1465,
+     "y": 505,
      "w": 150,
      "rotation": 10,
      "hidden": false,
@@ -364,7 +364,6 @@
  ],
  "content": {
   "cover": {
-   "issue": "Issue no. 1, autumn 2026",
    "tagline": "Research, reading lists, and a working journal. Pick something up from the table."
   },
   "notes": [
@@ -521,7 +520,7 @@
   "publications": [],
   "contact": {
    "email": "emmaqhe2@gmail.com",
-   "linkedin": "https://www.linkedin.com/public-profile/settings/?trk=d_flagship3_profile_self_view_public_profile&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3B0HzDgXeTTfqoBoBGQDrctw%3D%3D",
+   "linkedin": "https://www.linkedin.com/in/emma-he-178b83307",
    "note": "I'm always glad to hear about research, writing, or a good book. Email is the best way to reach me."
   }
  }
