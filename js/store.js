@@ -9,11 +9,11 @@
   const FORMAT = "emma-studio";
 
   const SECTIONS = {
-    publications: { label: "Publications", zh: "出版", href: "publications.html", hint: "papers and writing" },
-    projects: { label: "Projects", zh: "研究", href: "projects.html", hint: "four studies in progress" },
-    notes: { label: "Notes", zh: "笔记", href: "notes.html", hint: "a working journal" },
-    recs: { label: "Recs", zh: "推荐", href: "recs.html", hint: "books, music, reads, tables" },
-    contact: { label: "Contact", zh: "来信", href: "contact.html", hint: "write to me" },
+    publications: { label: "Publications", href: "publications.html", hint: "papers and writing" },
+    projects: { label: "Projects", href: "projects.html", hint: "four studies in progress" },
+    notes: { label: "Notes", href: "notes.html", hint: "a working journal" },
+    recs: { label: "Recs", href: "recs.html", hint: "books, music, reads, tables" },
+    contact: { label: "Contact", href: "contact.html", hint: "write to me" },
   };
   const SECTION_ORDER = ["publications", "projects", "notes", "recs", "contact"];
 
@@ -151,7 +151,7 @@
     p.pages = p.pages || [];
     p.content = p.content || {};
     const c = p.content;
-    c.cover = c.cover || { issue: "", tagline: "" };
+    c.cover = c.cover || { tagline: "" };
     c.notes = c.notes || [];
     c.recs = c.recs || {};
     for (const k of ["books", "music", "reads", "restaurants"]) c.recs[k] = c.recs[k] || [];

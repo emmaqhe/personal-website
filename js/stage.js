@@ -16,7 +16,6 @@
       const cover = content.cover || {};
       return `
         <div class="bd bd-cover">
-          <p class="bd-issue">${esc(cover.issue)}</p>
           <h1 class="bd-name" aria-label="Emma He">Emma He</h1>
           <p class="bd-zh" lang="zh-Hans">何其安</p>
           <p class="bd-tagline">${esc(cover.tagline)}</p>
@@ -28,7 +27,6 @@
       return `
         <div class="bd bd-title">
           <h1 class="bd-heading" style="font-size:${size}cqw">${esc(s.label)}</h1>
-          <p class="bd-zh" lang="zh-Hans">${esc(s.zh)}</p>
         </div>`;
     }
     return `<div class="bd bd-plain"></div>`;

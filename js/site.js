@@ -73,7 +73,7 @@
   function leaveTo(url, toCover) {
     const veil = q(".veil");
     if (!veil || reduceMotion) return (location.href = url);
-    veil.style.background = toCover ? "var(--velvet)" : "var(--pearl)";
+    veil.style.background = "var(--velvet)";
     veil.classList.add("is-leaving", "is-hidden");
     void veil.offsetWidth;
     veil.classList.remove("is-hidden");
@@ -260,7 +260,7 @@
         const split = new SplitText(name, { type: "chars" });
         tl.from(split.chars, { yPercent: 35, opacity: 0, filter: "blur(10px)", duration: 1.1, stagger: 0.045 }, 0.1);
       }
-      tl.from(stage.querySelectorAll(".bd-zh, .bd-issue, .bd-tagline"), { opacity: 0, y: 8, duration: 1, stagger: 0.15 }, 0.5);
+      tl.from(stage.querySelectorAll(".bd-zh, .bd-tagline"), { opacity: 0, y: 8, duration: 1, stagger: 0.15 }, 0.5);
       tl.from(
         els.map((e) => e.querySelector("img")),
         {
@@ -414,13 +414,13 @@
 
   // recs
   const SPINE_COLORS = [
-    ["#3d2b22", "#f3eae2"],
     ["#9a5760", "#fbf6ef"],
     ["#5c5a34", "#f3eae2"],
     ["#e7dbcf", "#3d2b22"],
     ["#b08a52", "#2b1e18"],
     ["#f3eae2", "#3d2b22"],
     ["#6e5244", "#f3eae2"],
+    ["#c6c8a3", "#2b1e18"],
   ];
 
   function hash(s) {
@@ -435,10 +435,10 @@
   }
 
   const REC_TABS = [
-    { id: "books", label: "Books", zh: "书" },
-    { id: "music", label: "Music", zh: "乐" },
-    { id: "reads", label: "Online reads", zh: "读" },
-    { id: "restaurants", label: "Restaurants", zh: "食" },
+    { id: "books", label: "Books" },
+    { id: "music", label: "Music" },
+    { id: "reads", label: "Online reads" },
+    { id: "restaurants", label: "Restaurants" },
   ];
 
   function recPanel(id, items) {
@@ -496,7 +496,7 @@
       <div class="folder tab-${initial.id}">
         <div class="folder-tabs" role="tablist" aria-label="Recommendations">${REC_TABS.map(
           (t) => `<button type="button" role="tab" id="tab-${t.id}" class="tab-${t.id}" aria-controls="panel" aria-selected="${t === initial}">
-            ${t.label}<span class="zh" lang="zh-Hans">${t.zh}</span></button>`
+            ${t.label}</button>`
         ).join("")}</div>
         <div class="folder-panel" id="panel" role="tabpanel"></div>
       </div>`;
@@ -610,7 +610,7 @@
           ${li ? `<a class="card-btn" href="${esc(li)}" target="_blank" rel="noopener"><span class="mono" aria-hidden="true">in</span>LinkedIn</a>` : ""}
           ${email ? `<button type="button" class="text-btn" data-copy>Copy email address</button>` : ""}
         </div>
-        <p class="signature">Emma<span class="zh" lang="zh-Hans">何其安</span></p>
+        <p class="signature">Emma He<span class="zh" lang="zh-Hans">何其安</span></p>
       </div>`;
     const copy = q("[data-copy]");
     if (copy) {
