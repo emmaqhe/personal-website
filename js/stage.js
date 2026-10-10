@@ -23,7 +23,7 @@
     }
     if (kind === "title") {
       const s = SECTIONS[page.id];
-      const size = Math.min(14, 120 / s.label.length);
+      const size = Math.min(16, 132 / s.label.length);
       return `
         <div class="bd bd-title">
           <h1 class="bd-heading" style="font-size:${size}cqw">${esc(s.label)}</h1>
