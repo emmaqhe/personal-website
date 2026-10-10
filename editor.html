@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Studio, Emma He 何其安</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=EB+Garamond:ital,wght@0,400..600;1,400..600&family=Noto+Serif+SC:wght@400;600&family=Pinyon+Script&display=swap">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/editor.css">
+</head>
+<body class="studio">
+  <header class="topbar">
+    <div class="brand">Studio <span lang="zh-Hans">何其安</span></div>
+    <div class="tb-group">
+      <button type="button" class="tb-btn" id="undo" title="Undo (Ctrl+Z)" aria-label="Undo">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/></svg>
+      </button>
+      <button type="button" class="tb-btn" id="redo" title="Redo (Ctrl+Shift+Z)" aria-label="Redo">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 14 5-5-5-5"/><path d="M20 9H9.5a5.5 5.5 0 0 0 0 11H13"/></svg>
+      </button>
+    </div>
+    <div class="tb-spacer"></div>
+    <span class="status" id="status" role="status">Loading…</span>
+    <div class="tb-group">
+      <button type="button" class="tb-btn text" id="open-words">Words</button>
+      <button type="button" class="tb-btn text" id="preview">Preview</button>
+      <button type="button" class="tb-btn text" id="export">Export</button>
+      <button type="button" class="tb-btn text" id="import">Import</button>
+      <button type="button" class="tb-btn" id="more" aria-label="More" aria-haspopup="menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="19" cy="12" r="1.4"/></svg>
+      </button>
+    </div>
+    <div class="menu-pop" id="more-menu" role="menu" hidden>
+      <button type="button" role="menuitem" data-act="published">Load the published version</button>
+      <button type="button" role="menuitem" data-act="help">How publishing works</button>
+    </div>
+  </header>
+
+  <aside class="panel left">
+    <section class="pane">
+      <div class="pane-head">
+        <h2>Pages</h2>
+        <button type="button" class="mini-btn" id="new-page">New page</button>
+      </div>
+      <ul class="pages" id="pages"></ul>
+    </section>
+    <section class="pane grow">
+      <div class="pane-head">
+        <h2>Library</h2>
+        <button type="button" class="mini-btn" id="upload">Upload</button>
+      </div>
+      <p class="pane-hint">Click an image to place it. Transparent PNG or WebP works best.</p>
+      <div class="library" id="library"></div>
+    </section>
+  </aside>
+
+  <main class="canvas-area" id="canvas-area">
+    <div class="stage-wrap" id="stage-wrap">
+      <div class="ed-stage" id="stage"></div>
+    </div>
+    <p class="canvas-hint" id="canvas-hint"></p>
+  </main>
+
+  <aside class="panel right">
+    <section class="pane grow">
+      <div class="pane-head">
+        <h2>Layers</h2>
+      </div>
+      <p class="pane-hint">Top of the list is the front. Drag to reorder.</p>
+      <ol class="layers" id="layers"></ol>
+    </section>
+  </aside>
+
+  <section class="drawer" id="drawer" aria-label="Words" hidden>
+    <div class="drawer-head">
+      <h2>Words</h2>
+      <button type="button" class="mini-btn" id="close-words">Done</button>
+    </div>
+    <div class="drawer-tabs" id="words-tabs" role="tablist"></div>
+    <div class="drawer-body" id="words-body"></div>
+  </section>
+
+  <input type="file" id="file-images" accept="image/png,image/webp,image/gif,image/svg+xml,image/jpeg" multiple hidden>
+  <input type="file" id="file-project" accept="application/json,.json" hidden>
+
+  <dialog class="help" id="help">
+    <h2>How publishing works</h2>
+    <p>Everything you do here saves automatically in this browser, and every studio or preview window you have open shows the same latest version.</p>
+    <p>Visitors see the version in <code>data/site.json</code> on GitHub. To publish your changes:</p>
+    <ol>
+      <li>Click <b>Export</b>. A file called <code>site.json</code> downloads.</li>
+      <li>On GitHub, open the <code>data</code> folder of your repository, click <b>Add file</b>, then <b>Upload files</b>.</li>
+      <li>Drop in <code>site.json</code> and click <b>Commit changes</b>. The site updates in a minute or two.</li>
+    </ol>
+    <h3>Shortcuts</h3>
+    <ul class="keys">
+      <li><kbd>Ctrl</kbd> <kbd>Z</kbd> undo, <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>Z</kbd> redo</li>
+      <li><kbd>Delete</kbd> remove the selected image from the page (it stays in the library)</li>
+      <li><kbd>Ctrl</kbd> <kbd>D</kbd> duplicate, arrow keys nudge, <kbd>[</kbd> <kbd>]</kbd> move back or forward</li>
+      <li>Hold <kbd>Shift</kbd> while rotating to snap to 15°</li>
+    </ul>
+    <form method="dialog"><button class="mini-btn">Close</button></form>
+  </dialog>
+
+  <script src="js/store.js"></script>
+  <script src="js/stage.js"></script>
+  <script src="js/editor.js"></script>
+</body>
+</html>

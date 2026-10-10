@@ -1,0 +1,528 @@
+{
+ "format": "emma-studio",
+ "version": 1,
+ "updatedAt": "2026-10-10T00:00:00Z",
+ "assets": [
+  {
+   "id": "teacup",
+   "name": "Teacup",
+   "src": "assets/objects/teacup.webp",
+   "w": 570,
+   "h": 533
+  },
+  {
+   "id": "lamp",
+   "name": "Lamp",
+   "src": "assets/objects/lamp.webp",
+   "w": 459,
+   "h": 634
+  },
+  {
+   "id": "feather",
+   "name": "Feather",
+   "src": "assets/objects/feather.webp",
+   "w": 363,
+   "h": 600
+  },
+  {
+   "id": "books",
+   "name": "Books",
+   "src": "assets/objects/books.webp",
+   "w": 529,
+   "h": 264
+  },
+  {
+   "id": "envelope",
+   "name": "Tulip letter",
+   "src": "assets/objects/envelope.webp",
+   "w": 543,
+   "h": 598
+  },
+  {
+   "id": "pearl",
+   "name": "Pearl",
+   "src": "assets/objects/pearl.webp",
+   "w": 257,
+   "h": 251
+  },
+  {
+   "id": "butterflies",
+   "name": "Butterflies",
+   "src": "assets/objects/butterflies.webp",
+   "w": 352,
+   "h": 384
+  },
+  {
+   "id": "cameo",
+   "name": "Cameo",
+   "src": "assets/objects/cameo.webp",
+   "w": 515,
+   "h": 596
+  },
+  {
+   "id": "clock",
+   "name": "Clock",
+   "src": "assets/objects/clock.webp",
+   "w": 482,
+   "h": 482
+  },
+  {
+   "id": "mirror",
+   "name": "Hand mirror",
+   "src": "assets/objects/mirror.webp",
+   "w": 299,
+   "h": 556
+  },
+  {
+   "id": "bow",
+   "name": "Bow",
+   "src": "assets/objects/bow.webp",
+   "w": 580,
+   "h": 620
+  },
+  {
+   "id": "swan",
+   "name": "Swan",
+   "src": "assets/objects/swan.webp",
+   "w": 880,
+   "h": 602
+  },
+  {
+   "id": "swans",
+   "name": "Two swans",
+   "src": "assets/objects/swans.webp",
+   "w": 758,
+   "h": 418
+  },
+  {
+   "id": "angel",
+   "name": "Angel",
+   "src": "assets/objects/angel.webp",
+   "w": 639,
+   "h": 774
+  },
+  {
+   "id": "cherub",
+   "name": "Cherub",
+   "src": "assets/objects/cherub.webp",
+   "w": 458,
+   "h": 658
+  },
+  {
+   "id": "flying-angel",
+   "name": "Flying angel",
+   "src": "assets/objects/flying-angel.webp",
+   "w": 463,
+   "h": 628
+  },
+  {
+   "id": "fan",
+   "name": "Lace fan",
+   "src": "assets/objects/fan.webp",
+   "w": 634,
+   "h": 471
+  },
+  {
+   "id": "parasol",
+   "name": "Parasol",
+   "src": "assets/objects/parasol.webp",
+   "w": 604,
+   "h": 655
+  },
+  {
+   "id": "shell",
+   "name": "Pearl shell",
+   "src": "assets/objects/shell.webp",
+   "w": 485,
+   "h": 530
+  }
+ ],
+ "pages": [
+  {
+   "id": "home",
+   "name": "Home",
+   "elements": [
+    {
+     "id": "el-1",
+     "assetId": "butterflies",
+     "x": 1415,
+     "y": 470,
+     "w": 150,
+     "rotation": 10,
+     "hidden": false,
+     "locked": false,
+     "link": ""
+    },
+    {
+     "id": "el-2",
+     "assetId": "books",
+     "x": 330,
+     "y": 665,
+     "w": 340,
+     "rotation": -4,
+     "hidden": false,
+     "locked": false,
+     "link": "publications"
+    },
+    {
+     "id": "el-3",
+     "assetId": "lamp",
+     "x": 660,
+     "y": 505,
+     "w": 250,
+     "rotation": 0,
+     "hidden": false,
+     "locked": false,
+     "link": "projects"
+    },
+    {
+     "id": "el-4",
+     "assetId": "feather",
+     "x": 1120,
+     "y": 610,
+     "w": 150,
+     "rotation": 18,
+     "hidden": false,
+     "locked": false,
+     "link": "notes"
+    },
+    {
+     "id": "el-5",
+     "assetId": "teacup",
+     "x": 890,
+     "y": 800,
+     "w": 270,
+     "rotation": 0,
+     "hidden": false,
+     "locked": false,
+     "link": "recs"
+    },
+    {
+     "id": "el-6",
+     "assetId": "envelope",
+     "x": 1355,
+     "y": 770,
+     "w": 300,
+     "rotation": -6,
+     "hidden": false,
+     "locked": false,
+     "link": "contact"
+    },
+    {
+     "id": "el-7",
+     "assetId": "pearl",
+     "x": 1040,
+     "y": 925,
+     "w": 64,
+     "rotation": 0,
+     "hidden": false,
+     "locked": false,
+     "link": ""
+    }
+   ]
+  },
+  {
+   "id": "publications",
+   "name": "Publications",
+   "elements": [
+    {
+     "id": "el-8",
+     "assetId": "books",
+     "x": 1270,
+     "y": 260,
+     "w": 380,
+     "rotation": -3,
+     "hidden": false,
+     "locked": false,
+     "link": ""
+    },
+    {
+     "id": "el-9",
+     "assetId": "pearl",
+     "x": 1500,
+     "y": 390,
+     "w": 80,
+     "rotation": 0,
+     "hidden": false,
+     "locked": false,
+     "link": ""
+    }
+   ]
+  },
+  {
+   "id": "projects",
+   "name": "Projects",
+   "elements": [
+    {
+     "id": "el-10",
+     "assetId": "lamp",
+     "x": 1190,
+     "y": 205,
+     "w": 230,
+     "rotation": 0,
+     "hidden": false,
+     "locked": false,
+     "link": ""
+    },
+    {
+     "id": "el-11",
+     "assetId": "clock",
+     "x": 1430,
+     "y": 255,
+     "w": 230,
+     "rotation": 8,
+     "hidden": false,
+     "locked": false,
+     "link": ""
+    }
+   ]
+  },
+  {
+   "id": "notes",
+   "name": "Notes",
+   "elements": [
+    {
+     "id": "el-12",
+     "assetId": "cameo",
+     "x": 1440,
+     "y": 220,
+     "w": 210,
+     "rotation": -6,
+     "hidden": false,
+     "locked": false,
+     "link": ""
+    },
+    {
+     "id": "el-13",
+     "assetId": "feather",
+     "x": 1240,
+     "y": 210,
+     "w": 170,
+     "rotation": 20,
+     "hidden": false,
+     "locked": false,
+     "link": ""
+    }
+   ]
+  },
+  {
+   "id": "recs",
+   "name": "Recs",
+   "elements": [
+    {
+     "id": "el-14",
+     "assetId": "teacup",
+     "x": 1220,
+     "y": 260,
+     "w": 270,
+     "rotation": 0,
+     "hidden": false,
+     "locked": false,
+     "link": ""
+    },
+    {
+     "id": "el-15",
+     "assetId": "butterflies",
+     "x": 1450,
+     "y": 120,
+     "w": 140,
+     "rotation": -12,
+     "hidden": false,
+     "locked": false,
+     "link": ""
+    }
+   ]
+  },
+  {
+   "id": "contact",
+   "name": "Contact",
+   "elements": [
+    {
+     "id": "el-16",
+     "assetId": "envelope",
+     "x": 1250,
+     "y": 240,
+     "w": 310,
+     "rotation": -5,
+     "hidden": false,
+     "locked": false,
+     "link": ""
+    },
+    {
+     "id": "el-17",
+     "assetId": "bow",
+     "x": 1470,
+     "y": 170,
+     "w": 160,
+     "rotation": 12,
+     "hidden": false,
+     "locked": false,
+     "link": ""
+    }
+   ]
+  }
+ ],
+ "content": {
+  "cover": {
+   "issue": "Issue no. 1, autumn 2026",
+   "tagline": "Research, reading lists, and a working journal. Pick something up from the table."
+  },
+  "notes": [
+   {
+    "id": "note-2",
+    "date": "2026-10-10",
+    "title": "First page",
+    "aside": "jasmine tea, a quiet afternoon",
+    "body": "This is the first page of my notes. I'll keep things here as I go: what I'm reading, ideas that aren't finished yet, and small things worth remembering.\n\nSome entries will be long and some will be a single line."
+   },
+   {
+    "id": "note-1",
+    "date": "2026-10-03",
+    "title": "A placeholder entry",
+    "aside": "replace me",
+    "body": "Each note has a date, a title, a short line under the title, and as many paragraphs as you like. Leave a blank line between paragraphs.\n\nYou can write *italics*, **bold**, and [links](https://example.com) too."
+   }
+  ],
+  "recs": {
+   "books": [
+    {
+     "title": "A book you love",
+     "author": "Author name",
+     "note": "One line on why it stayed with you.",
+     "url": ""
+    },
+    {
+     "title": "One you keep lending out",
+     "author": "Author name",
+     "note": "Who you'd give it to, and why.",
+     "url": ""
+    },
+    {
+     "title": "Something you read slowly",
+     "author": "Author name",
+     "note": "The page you dog-eared.",
+     "url": ""
+    },
+    {
+     "title": "A book of essays",
+     "author": "Author name",
+     "note": "The essay to start with.",
+     "url": ""
+    },
+    {
+     "title": "Poems",
+     "author": "Author name",
+     "note": "A line you remember.",
+     "url": ""
+    }
+   ],
+   "music": [
+    {
+     "title": "Song title",
+     "artist": "Artist",
+     "note": "When to listen to it.",
+     "url": ""
+    },
+    {
+     "title": "Another song",
+     "artist": "Artist",
+     "note": "What it reminds you of.",
+     "url": ""
+    },
+    {
+     "title": "An album, start to finish",
+     "artist": "Artist",
+     "note": "Best on a long train ride.",
+     "url": ""
+    }
+   ],
+   "reads": [
+    {
+     "title": "An essay worth your evening",
+     "source": "Publication",
+     "note": "One sentence on what it changed for you.",
+     "url": ""
+    },
+    {
+     "title": "A long read",
+     "source": "Publication",
+     "note": "Why it's worth the length.",
+     "url": ""
+    },
+    {
+     "title": "A blog post you keep sending people",
+     "source": "Website",
+     "note": "What it gets right.",
+     "url": ""
+    }
+   ],
+   "restaurants": [
+    {
+     "name": "Restaurant name",
+     "city": "City",
+     "dish": "What to order",
+     "note": "Go for lunch, sit by the window.",
+     "url": ""
+    },
+    {
+     "name": "A neighbourhood café",
+     "city": "City",
+     "dish": "The pastry",
+     "note": "Best before ten.",
+     "url": ""
+    },
+    {
+     "name": "Somewhere for a birthday",
+     "city": "City",
+     "dish": "The tasting menu",
+     "note": "Book two weeks ahead.",
+     "url": ""
+    }
+   ]
+  },
+  "projects": [
+   {
+    "title": "Research project one",
+    "field": "Field or lab",
+    "year": "2026",
+    "status": "In progress",
+    "abstract": "Two or three sentences on the question, how you're approaching it, and what you've found so far.",
+    "url": "",
+    "image": "lamp"
+   },
+   {
+    "title": "Research project two",
+    "field": "Field or lab",
+    "year": "2026",
+    "status": "In progress",
+    "abstract": "Two or three sentences on the question, how you're approaching it, and what you've found so far.",
+    "url": "",
+    "image": "clock"
+   },
+   {
+    "title": "Research project three",
+    "field": "Field or lab",
+    "year": "2025",
+    "status": "Completed",
+    "abstract": "Two or three sentences on the question, how you approached it, and what you found.",
+    "url": "",
+    "image": "mirror"
+   },
+   {
+    "title": "Research project four",
+    "field": "Field or lab",
+    "year": "2025",
+    "status": "Completed",
+    "abstract": "Two or three sentences on the question, how you approached it, and what you found.",
+    "url": "",
+    "image": "cameo"
+   }
+  ],
+  "publications": [],
+  "contact": {
+   "email": "emmaqhe2@gmail.com",
+   "linkedin": "https://www.linkedin.com/public-profile/settings/?trk=d_flagship3_profile_self_view_public_profile&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3B0HzDgXeTTfqoBoBGQDrctw%3D%3D",
+   "note": "I'm always glad to hear about research, writing, or a good book. Email is the best way to reach me."
+  }
+ }
+}
